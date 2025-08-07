@@ -11,7 +11,7 @@ export const useCourses = (): CoursesReturn => {
       rating: item.rating.toFixed(1), // 5 -> 5.0
       reviewsCount: item.reviewsCount.toLocaleString(), // 1000 -> 1,000
       studentCount: item.studentCount.toLocaleString(), // 12345 -> 12,345
-      path: `/course/${item.courseSlug}`,
+      path: `/courses/${item.courseSlug}`,
     })
   );
 
