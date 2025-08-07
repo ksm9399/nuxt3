@@ -7,15 +7,20 @@
       </p>
     </div>
     <div class="row q-col-gutter-lg">
-      <div v-for="n in 3" :key="n" class="col-12 col-md-4 col-sm-6">
-        <CourseCard />
+      <div v-for="course in courses" :key="course.courseSlug" class="col-12 col-md-4 col-sm-6">
+        <NuxtLink v-slot="{navigate}" custom :to="course.path">
+          <CourseCard
+            :course="course"
+            @click="navigate"
+          />
+        </NuxtLink>
       </div>
     </div>
   </q-page>
 </template>
 
 <script setup lang="ts">
-
+const { courses } = useCourses()
 </script>
 
 <style scoped></style>
