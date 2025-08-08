@@ -7,8 +7,8 @@
     <div>NuxtPage</div>
     <NuxtPage />
     <!-- RouterView - 컴포넌트가 렌더링될때 한번만 렌더링됨 -->
-    <div>RouterView</div>
-    <RouterView />
+    <!-- <div>RouterView</div>
+    <RouterView /> -->
   </NuxtLayout>
 </template>
 
