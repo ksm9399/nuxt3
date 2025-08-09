@@ -3,12 +3,16 @@
     <q-header elevated class="bg-dark text-white">
       <q-toolbar>
         <q-toolbar-title> Vue & Nuxt Mastery Class </q-toolbar-title>
-        <NuxtLink v-slot="{navigate}" custom to="/" >
+        <NuxtLink v-slot="{ navigate }" custom to="/">
           <q-btn stretch flat label="Home" no-caps @click="navigate()" />
         </NuxtLink>
         <q-separator dark vertical />
-        <NuxtLink v-slot="{navigate}" custom to="/about" >
+        <NuxtLink v-slot="{ navigate }" custom to="/about">
           <q-btn stretch flat label="About" no-caps @click="navigate()" />
+        </NuxtLink>
+        <q-separator dark vertical />
+        <NuxtLink v-slot="{ navigate }" custom to="/admin">
+          <q-btn stretch flat label="Admin" no-caps @click="navigate()" />
         </NuxtLink>
       </q-toolbar>
     </q-header>
