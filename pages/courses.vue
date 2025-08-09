@@ -17,6 +17,15 @@
                 {{ index + 1 }}. {{ course.title }}
               </q-item-section>
             </q-item>
+            <!-- <NuxtLink v-slot="{ navigate }" custom to="/courses/prefetching-1">
+              <q-item clickable @click="navigate()">Prefetching Test 1</q-item>
+            </NuxtLink>
+            <NuxtLink v-slot="{ navigate }" custom to="/courses/prefetching-2">
+              <q-item clickable @click="navigate()">Prefetching Test 2</q-item>
+            </NuxtLink>
+            <NuxtLink v-slot="{ navigate }" custom to="/courses/prefetching-3">
+              <q-item clickable @click="navigate()">Prefetching Test 3</q-item>
+            </NuxtLink> -->
           </q-list>
         </q-card>
       </div>
