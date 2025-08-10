@@ -4,7 +4,7 @@
       <!-- /courses 요청시 상위 디렉토리에 폴더명과 같은 파일이 있다면 parent컴포넌트로 인식 템플릿 랜더링 -->
       <div class="col-3">
         <q-card>
-          <q-item-label header>강의 로드맵</q-item-label>
+          <q-item-label header>강의 로드맵 {{ $hello('gym coding') }}</q-item-label>
           <q-list bordered separator>
             <q-item
               v-for="(course, index) in courses"
