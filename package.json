@@ -41,6 +41,7 @@
     "eslint-plugin-vue": "^10.4.0",
     "nuxt-quasar-ui": "^2.1.13",
     "prettier": "^3.6.2",
+    "vue-i18n": "^11.1.11",
     "vue-tsc": "^3.0.1"
   }
 }

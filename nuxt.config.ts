@@ -9,5 +9,13 @@ export default defineNuxtConfig({
   typescript: {
     shim: false,
     typeCheck: true,
+  },
+  imports: {
+    presets: [
+      {
+        from: 'vue-i18n',
+        imports: ['useI18n'],
+      }
+    ]
   }
 })
