@@ -39,7 +39,7 @@
       <q-form class="q-gutter-y-md">
         <q-btn
           label="수강완료" class="full-width" color="green" unelevated :outline="completed ? false : true"
-          :icon="completed ? 'check' : undefined" @click="completed = !completed" />
+          :icon="completed ? 'check' : undefined" @click="toggleComplete" />
         <q-input v-model="memo" type="textarea" outlined dense placeholder="메모를 작성해주세요." rows="3" autogrow />
       </q-form>
       <template #footer>
@@ -59,6 +59,14 @@ const route = useRoute();
 const courseSlug = route.params.courseSlug as string;
 const { course, prevCourse, nextCourse } = useCourse(courseSlug);
 
+if (!course) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: '강의를 찾을 수 없습니다.',
+    fatal: true,  // 클라이언트 랜더링 에러발생시 공통 에러페이지로 던져줌
+  })
+}
+
 console.log(`[courseSlug].vue 컴포넌트 setup hooks`)
 
 // 컴포넌트 안에서 선언된 변수를 참조하면 안됨
@@ -75,6 +83,11 @@ const completed = ref(false);
 
 const movePage = async (path: string) => {
   await navigateTo(path)
+}
+
+const toggleComplete = () => {
+  // $fetch('/api/error')
+  completed.value = !completed.value
 }
 </script>
 
