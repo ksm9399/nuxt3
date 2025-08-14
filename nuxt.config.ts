@@ -6,6 +6,16 @@ export default defineNuxtConfig({
     'nuxt-quasar-ui',
     '@nuxt/eslint'
   ],
+  quasar: {
+    plugins: [
+      'Notify',
+    ],
+    config: {
+      notify: {
+        position: 'top-right',
+      }
+    }
+  },
   typescript: {
     shim: false,
     typeCheck: true,
