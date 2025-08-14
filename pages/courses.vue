@@ -40,7 +40,23 @@
       </div>
       <!-- /courses 폴더 하위에 있는 index.vue를 랜더링 함 -->
       <div class="col">
-        <NuxtPage />
+        <NuxtErrorBoundary>
+          <NuxtPage />
+          <template #error="{ error, clearError }">
+            <div class="flex flex-center column q-py-xl">
+              <div class="text-h6 q-mb-lg">
+                {{ error }}
+
+              </div>
+              <q-btn
+                label="Reset"
+                color="positive"
+                no-caps
+                @click="clearError()"
+              />
+            </div>
+          </template>
+        </NuxtErrorBoundary>
       </div>
     </div>
   </q-page>

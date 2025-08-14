@@ -87,11 +87,17 @@ const movePage = async (path: string) => {
 
 const toggleComplete = () => {
   // $fetch('/api/error')
-  showError({
+  // showError({
+  //   statusCode: 403,
+  //   message: '수강 완료 기능은 개발중입니다.',
+  // })
+
+  completed.value = !completed.value
+
+  throw createError({
     statusCode: 403,
     message: '수강 완료 기능은 개발중입니다.',
   })
-  completed.value = !completed.value
 }
 </script>
 
