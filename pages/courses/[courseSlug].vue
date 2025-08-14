@@ -59,13 +59,13 @@ const route = useRoute();
 const courseSlug = route.params.courseSlug as string;
 const { course, prevCourse, nextCourse } = useCourse(courseSlug);
 
-if (!course) {
-  throw createError({
-    statusCode: 404,
-    statusMessage: '강의를 찾을 수 없습니다.',
-    // fatal: true,  // 클라이언트 랜더링 에러발생시 공통 에러페이지로 던져줌
-  })
-}
+// if (!course) {
+//   throw createError({
+//     statusCode: 404,
+//     statusMessage: '강의를 찾을 수 없습니다.',
+//     // fatal: true,  // 클라이언트 랜더링 에러발생시 공통 에러페이지로 던져줌
+//   })
+// }
 
 console.log(`[courseSlug].vue 컴포넌트 setup hooks`)
 
@@ -76,6 +76,21 @@ definePageMeta({
   pageType: '',
   // keepalive: true,  // 컴포넌트 상태유지(처음만 랜더링 그 후 캐시데이터 사용)
   alias: ['/lecutre/:courseSlug'],
+  validate: (route) => {
+    const courseSlug = route.params.courseSlug as string
+    const { course } = useCourse(courseSlug)
+
+    if (!course) {
+      // return false
+      throw createError({
+        statusCode: 404,
+        statusMessage: '강의를 찾을 수 없습니다.',
+        // fatal: true,  // 클라이언트 랜더링 에러발생시 공통 에러페이지로 던져줌
+      })
+    }
+
+    return true
+  }
 })
 
 const memo = ref('');
