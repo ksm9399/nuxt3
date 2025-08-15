@@ -21,15 +21,20 @@
           <q-list padding dense>
             <q-item
               v-for="{ code, name } in languages" :key="code" v-close-popup clickable
-              :active="code === $i18n.locale"
-              @click="$i18n.locale = code"
-            >
+              :active="code === $i18n.locale" @click="$i18n.locale = code">
               <q-item-section>
                 <q-item-label>{{ name }}</q-item-label>
               </q-item-section>
             </q-item>
           </q-list>
         </q-btn-dropdown>
+        <q-separator dark vertical />
+        <NuxtLink v-slot="{ navigate }" custom to="/login">
+          <q-btn stretch flat :label="$t('login')" no-caps @click="navigate()" />
+        </NuxtLink>
+        <NuxtLink v-slot="{ navigate }" custom to="/">
+          <q-btn stretch flat :label="$t('logout')" no-caps @click="navigate()" />
+        </NuxtLink>
       </q-toolbar>
     </q-header>
     <q-page-container :style="pageContainerStyle">
