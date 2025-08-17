@@ -12,6 +12,7 @@ import PageDescription from '~/components/PageDescription.vue';
 
 definePageMeta({
   layout: 'admin',
+  // middleware: ['admin-only'],
 });
 </script>
 
