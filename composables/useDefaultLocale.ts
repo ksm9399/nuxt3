@@ -4,6 +4,7 @@ export const useDefaultLocale = (fallback = 'en') => {
   // navigator객체 서버에서 접근 불가
   // locale.value = navigator.language.split('-')[0]
 
+  // ssr일때
   if (import.meta.server) {
     const reqLocale = useRequestHeader('accept-language')?.split(';')[0].split(',')[0]
     console.log('reqLocale: ',reqLocale)
@@ -12,6 +13,7 @@ export const useDefaultLocale = (fallback = 'en') => {
       locale.value = reqLocale;
     }
   }
+  // csr일때
   else if (import.meta.client) {
     locale.value = navigator.language.split('-')[0]
   }

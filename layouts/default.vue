@@ -49,7 +49,9 @@
 import { NuxtLink } from '#components';
 import { useI18n } from 'vue-i18n';
 
-const { authUser, isAuthenticated} = useAuthUser()
+const authUser = useAuthUser()
+const isAuthenticated = useAuthenticated()
+
 const { signOut } = useAuth()
 
 const pageContainerStyle = computed(() => ({
