@@ -5,10 +5,16 @@ export default defineNuxtPlugin((nuxtApp) => {
     // console.log('vue:error hook triggered', error)
 
     if (error instanceof Error) {
-      Notify.create({
-        message: error.message || 'An error occurred',
-        type: 'warning',
-      })
+      if (import.meta.client) {
+        Notify.create({
+          message: error.message || 'An error occurred',
+          type: 'warning',
+        })
+      }
+      else {
+        console.log('error: ', error.message)
+      }
+
     }
   })
 
@@ -16,10 +22,15 @@ export default defineNuxtPlugin((nuxtApp) => {
     // console.log('vue:error hook triggered', error)
 
     if (error instanceof Error) {
-      Notify.create({
-        message: error.message || 'An error occurred',
-        type: 'negative',
-      })
+      if (import.meta.client) {
+        Notify.create({
+          message: error.message || 'An error occurred',
+          type: 'negative',
+        })
+      }
+      else {
+        console.log('error: ', error.message)
+      }
     }
   })
 })
