@@ -10,6 +10,21 @@
         <br />
         <NuxtLink to="/">NuxtLink Home</NuxtLink>
         <NuxtLink to="https://youtube.com/@gymcoding">NuxtLink Youtube</NuxtLink>
+
+        <div class="q-gutter-y-sm q-mt-md">
+          <div class="text-subtitle1 text-weight-bold">useState('counter')</div>
+          <div>
+            counter: {{ counter }}
+            <q-btn label="counter" color="primary" dense no-caps @click="counter++" />
+          </div>
+          <div>
+            sameCounter: {{ sameCounter }}
+            <q-btn label="sameCounter" color="primary" dense no-caps @click="sameCounter++" />
+          </div>
+          <div>
+            <q-btn label="clear" @click="clearNuxtState()" />
+          </div>
+        </div>
       </div>
 
     </div>
@@ -17,7 +32,6 @@
 </template>
 
 <script setup lang="ts">
-import { NuxtLink } from '#components';
-import { RouterLink } from 'vue-router';
-
+const counter = useState<number>('counter', () => 1)
+const sameCounter = useState<number>('counter', () => 1)
 </script>
