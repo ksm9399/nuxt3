@@ -63,5 +63,5 @@
 </template>
 
 <script setup lang="ts">
-const { courses } = useCourses();
+const { courses } = await useCourses();
 </script>
