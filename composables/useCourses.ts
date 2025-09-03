@@ -1,11 +1,11 @@
 import type { CourseWithPath } from '~/types/course';
 
 interface CoursesReturn {
-  courses: CourseWithPath[];
+  courses: Maybe<CourseWithPath[]>;
 }
 
 export const useCourses = async (): Promise<CoursesReturn>=> {
-  const {data, error} = await useFetch('/api/courses')
+  const {data, error} = await useFetch<CourseWithPath[]>('/api/courses')
 
   if (error.value) {
     throw createError({
@@ -14,6 +14,6 @@ export const useCourses = async (): Promise<CoursesReturn>=> {
   }
 
   return {
-    courses: data.value as CourseWithPath[],
+    courses: data.value
   };
 };
