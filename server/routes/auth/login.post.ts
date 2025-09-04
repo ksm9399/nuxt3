@@ -13,8 +13,6 @@ export default defineEventHandler(async (event) => {
   }
 
   const userWithPassword = getUserByEmail(email)
-  console.log('userWithPassword')
-  console.log(userWithPassword)
   if (!userWithPassword) {
     throw createError({
       statusCode: 401,
