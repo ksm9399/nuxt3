@@ -29,5 +29,13 @@ export default defineNuxtConfig({
         imports: ['useI18n'],
       }
     ]
+  },
+  app: {
+    head: {
+      title: 'Vue & Nuxt 강의',
+      meta:[
+        { name: 'description', content: '짐코딩 Vue & Nuxt 강의' },
+      ]
+    }
   }
 })
