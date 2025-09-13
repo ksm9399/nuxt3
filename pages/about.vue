@@ -35,6 +35,12 @@
             <q-btn label="clear" color="red" @click="counterStore.clear()" />
           </div>
         </div>
+
+        <div class="q-gutter-y-sm q-mt-md">
+          <div class="text-subtitle1 text-weight-bold">local vs session storage</div>
+          <q-input v-model="localStorageColor" outlined></q-input>
+          <q-input v-model="sessionStorageColor" outlined></q-input>
+        </div>
       </div>
     </div>
   </q-page>
@@ -47,4 +53,6 @@ const sameCounter = useState<number>('counter', () => 1)
 const counterStore = useCounterStore()
 const { count, doubleCount } = storeToRefs(counterStore)
 
+const localStorageColor = useLocalStorage('color-key', null)  // 사용자가 직접 값을 삭제하지 않는한 지워지지 않음
+const sessionStorageColor = useSessionStorage('color-key', null)  // 브라우저 종료시 지워짐
 </script>
